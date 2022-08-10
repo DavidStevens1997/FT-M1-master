@@ -19,8 +19,20 @@ function counter() {
   otroContador()      // 2
   otroContador()      // 3
    */
-}
 
+  let contador = 0;
+
+  return function contador(){
+    contador = contador + 1;
+    return contador;
+  };
+}
+const counterFunction = counter();
+const counterOne = counter();
+const counterTwo = counter();
+counterFunction();
+counterOne();
+counterTwo();
 function cacheFunction(cb) {
   /*
   Ejercicio 2
