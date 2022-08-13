@@ -15,9 +15,19 @@ Como ejercicio adicional y completamente opcional, al terminar de resolver este 
 */
 
 function nFactorial(n) {
+  if (n === 0 || n === 1) return 1;
+  if (n < 0) return 0;
+
+  return n * nFactorial(n-1); 
+
 }
 
 function nFibonacci(n) {
+  if (n === 0) return 0;
+  if (n === 1) return 1;
+
+  return nFibonacci(n-1) + nFibonacci(n-2); 
+
 }
 
 /*
