@@ -20,7 +20,6 @@ function Node(value){
 function LinkedList() {
     this.head = null;
     this.size = 0;
-  
 }
 
 LinkedList.prototype.add = function(value){
@@ -56,8 +55,21 @@ LinkedList.prototype.remove = function(value){
   return null; 
 }
 
-LinkedList.prototype.search = function(value){
-  let current = this.head;
+LinkedList.prototype.search= function(value){
+  if(!this.head) return null;// si el head es null devolveme null
+  let current= this.head;//creamos nuestro posicionador diciendo que current es head
+  while(current){//mientras current existe o es true
+    //HEAD -> value:1 next:{value:2 next:{value:3 next:{value:cb() next: null}}
+    if(current.value=== value) // 
+    return current.value;// deveolveme ese valor
+    else if(typeof value == 'function') {//
+      if(value(current.value)){//
+        return current.value// return la funcion
+      }
+    }
+    current = current.next//
+  } 
+  return null//
 }
 
 
