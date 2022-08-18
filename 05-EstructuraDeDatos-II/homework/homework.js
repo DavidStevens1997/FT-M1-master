@@ -22,39 +22,43 @@ function LinkedList() {
     this.size = 0;
 }
 
-LinkedList.prototype.add = function(value){
-  let node = new Node(value);
+let list = new LinkedList();
+
+LinkedList.prototype.add = function(data){
+  let node = new Node(data);
   let current = this.head;
   if(!current){
-    this.head = node; 
+    this.head = node;
+    this.size++;
+    return node; 
   }else{
     while(current.next){
       current = current.next;
     }
     current.next = node;
+    this.size++;
   }
-  this.size++;
+  
 }
 
 LinkedList.prototype.remove = function(value){
   let current = this.head;
-  let previous = null;
-  while (current != null) {
-    if (current.value === value) {
-      if (!previous) {
-        this.head = current.next;
-      } else {
-        previous.next = current.next;
-      }
-      this.else--;
-      return current.value; 
-    } 
-    previous = current;
+  if (!current) return null;
+  if (!current.next) {
+    let auxiliar = current.value;
+    this.head = null;
+    this.size--;
+    return auxiliar;
+  }
+
+  while(current.next.next){
     current = current.next;
   }
-  return null; 
+  let auxiliar = current.next.value;
+  current.next = null;
+  this.size--;
+  return auxiliar;  
 }
-
 LinkedList.prototype.search= function(value){
   if(!this.head) return null;// si el head es null devolveme null
   let current= this.head;//creamos nuestro posicionador diciendo que current es head
